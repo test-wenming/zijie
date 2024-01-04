@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -34,8 +35,9 @@ try:
     wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".base-tabs-bar-container div:nth-child(2)"))).click()
 
     # 输入邮箱号
-    driver.find_element(By.CSS_SELECTOR, ".ud__input-input-wrap .ud__native-input").clear()
-    driver.find_element(By.CSS_SELECTOR, ".ud__input-input-wrap .ud__native-input").send_keys("604451714@qq.com")
+    email_input = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".ud__input-input-wrap .ud__native-input")))
+    email_input.clear()
+    email_input.send_keys("604451714@qq.com")
 
     # 我已阅读并同意
     driver.find_element(By.CSS_SELECTOR, ".ud__checkbox__input").click()
